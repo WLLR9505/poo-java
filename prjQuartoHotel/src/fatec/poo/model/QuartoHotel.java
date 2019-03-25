@@ -45,6 +45,9 @@ public class QuartoHotel {
     public double getTotalFaturado() {
         return TotalFaturado;
     }
-    
+
+    public int getNumQuarto() {
+        return NumQuarto;
+    }
     
 }
