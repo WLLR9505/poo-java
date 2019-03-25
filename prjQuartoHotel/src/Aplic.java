@@ -35,8 +35,12 @@ public class Aplic {
         op = entrada.nextInt();
         
         switch(op) {
-            case 1: 
-                System.out.println("Ocupado? " + quarto.getSituacao());
+            case 1:
+                if (quarto.getSituacao()) {
+                System.out.println("Quarto ocupado");
+                } else {
+                System.out.println("Quarto livre");    
+                }
                 break;
             case 2:
                 if (quarto.getSituacao() == true) {
