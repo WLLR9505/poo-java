@@ -28,21 +28,36 @@ public class Aplic {
             hotel[n] = new QuartoHotel(n + 1, valorDiaria);
         }       
                 
-        int op;
+        int op, nQ;
         
         while(true) {
         System.out.println("Hotel Recanto do Sossego");
         System.out.println("1 - Consultar Quartos");
-        System.out.println("2 - Reservar Quarto");
-        System.out.println("3 - Liberar Quarto");
-        System.out.println("4 - Consultar Faturamento do Hotel");
-        System.out.println("5 - Sair");
+        System.out.println("2 - Consultar todos os Quartos");
+        System.out.println("3 - Reservar Quarto");
+        System.out.println("4 - Liberar Quarto");
+        System.out.println("5 - Consultar Faturamento do Hotel");
+        System.out.println("6 - Sair");
         System.out.println("Digite a opcao:");
         
         op = entrada.nextInt();
         
         switch(op) {
             case 1:
+                System.out.println("Informe o numero do quarto a ser consultado: ");
+                nQ = entrada.nextInt();               
+                                
+                if(pesqQuarto(hotel, nQ) == -1 ){
+                    System.out.println("Quarto não cadastrado");
+                } else {
+                   if(hotel[pesqQuarto(hotel, nQ)].getSituacao()){
+                      System.out.println("Quarto Ocupado");
+                   }else {
+                      System.out.println("Quarto Livre");
+                   }
+                }
+                break;
+            case 2:
                 for (int i = 0; i < hotel.length; i++) {
                     if (hotel[i].getSituacao()) {
                     System.out.println("Quarto " + hotel[i].getNumQuarto() + " ocupado");
@@ -51,42 +66,59 @@ public class Aplic {
                     }
                 }
                 break;
-            case 2:
-                int qOcupados = 0; //indica quantos quartos estão ocupados
-                for (int i = 0; i < hotel.length; i++) {
-                    if (hotel[i].getSituacao() == false) {
-                        System.out.println("Quarto " + hotel[i].getNumQuarto() + " Livre, Digite seu RG para reservar");
-                        hotel[i].reservar(entrada.nextInt());
-                        break;
-                    }
-                    qOcupados++;
-                }
-                if (qOcupados == 10) {
-                    System.out.println("Todos os quartos estao ocupados");
-                }
-                break;
             case 3:
+                System.out.println("Informe o numero do quarto a ser consultado: ");
+                   nQ= entrada.nextInt();   
+                   if(pesqQuarto(hotel, nQ) == -1 ){
+                       System.out.println("Quarto não cadastrado");
+                   }else
+                     if (hotel[pesqQuarto(hotel, nQ)].getSituacao()){
+                         System.out.println("Quarto Ocupado");
+                     }
+                     else{
+                       System.out.println("Digite o RG: ");
+                       hotel[pesqQuarto(hotel, nQ)].reservar(entrada.nextInt());
+                   }  
+                break;
+            case 4:
                 System.out.println("Digite o numero do quarto para liberar");
                 int qLiberar = entrada.nextInt();
                 
-                if (hotel[qLiberar - 1].getSituacao() == false) {
-                    System.out.println("Quarto ja esta livre");
-                } else {
-                    System.out.println("Quantos dias o quarto esteve ocupado?");
-                    System.out.println("Valor a ser pago: " + hotel[qLiberar - 1].liberar(entrada.nextInt()));
-                }
+                if(pesqQuarto(hotel, qLiberar) == -1 ){
+                         System.out.println("Quarto não cadastrado");
+                     }else
+                       if (hotel[pesqQuarto(hotel, qLiberar)].getSituacao()){
+                           int qtdeDias;
+                           System.out.println("Informe a qtde. de dias: ");
+                           qtdeDias = entrada.nextInt();
+                           System.out.println("Valor da hospedagem: R$ " + hotel[pesqQuarto(hotel, qLiberar)].liberar(qtdeDias));						   
+                       }
+                       else{
+                         System.out.println("Quarto Livre");   
+                       }
                 break;
-            case 4:
+            case 5:
                 double totalFaturado = 0;
                 for (int i = 0; i < hotel.length; i++) {
                     totalFaturado += hotel[i].getTotalFaturado(); //pega o faturamento de cada quarto
                 }
                 System.out.println("Faturamento: " + totalFaturado);
                 break;
-            case 5:
+            case 6:
                 System.exit(0);
                 break;
             }
         }
+    }
+    public static int pesqQuarto(QuartoHotel[] h, int nq){
+        int Cont, Resultado = -1;
+        
+        Cont = 0; 
+        while(Cont < h.length && h[Cont].getNumQuarto() != nq){ 
+             Cont++;
+        }
+        if (Cont < h.length)
+            Resultado = Cont;
+        return(Resultado);
     }
 }
