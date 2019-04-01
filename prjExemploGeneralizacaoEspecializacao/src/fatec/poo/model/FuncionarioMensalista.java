@@ -9,11 +9,11 @@ package fatec.poo.model;
  *
  * @author WLLR9505
  */
-public abstract class FuncionarioMensalista extends Funcionario {
+public class FuncionarioMensalista extends Funcionario {
    private double valSalMin;
    private double numSalMin;
 
-    public FuncionarioMensalista(double numSalMin, int registro, String nome, String dtAdmissao) {
+    public FuncionarioMensalista(int registro, String nome, String dtAdmissao, double numSalMin) {
         super(registro, nome, dtAdmissao);
         this.numSalMin = numSalMin;
     }

@@ -9,11 +9,11 @@ package fatec.poo.model;
  *
  * @author WLLR9505
  */
-public abstract class FuncionarioHorista extends Funcionario {
+public class FuncionarioHorista extends Funcionario {
     private double valHorTrab;
     private int qtdeHorTrab;
 
-    public FuncionarioHorista(double valHorTrab, int registro, String nome, String dtAdmissao) {
+    public FuncionarioHorista(int registro, String nome, String dtAdmissao, double valHorTrab) {
         super(registro, nome, dtAdmissao);
         this.valHorTrab = valHorTrab;
     }
@@ -27,9 +27,13 @@ public abstract class FuncionarioHorista extends Funcionario {
            salBruto = this.valHorTrab *  this.qtdeHorTrab;
            return salBruto;
    }
+   
+   public double calcSalLiquido() {
+        return super.calcSalLiquido() + this.calcGratificacao();
+   }
 
    public double calcGratificacao() {
-       return this.calcSalBruto() * 0.75; 
+       return 0.075 * this.calcSalBruto(); 
    }
    
 }
