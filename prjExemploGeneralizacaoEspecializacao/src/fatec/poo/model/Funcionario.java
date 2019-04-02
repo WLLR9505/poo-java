@@ -43,16 +43,12 @@ package fatec.poo.model;
     
     abstract public double calcSalBruto(); 
     
-    public double calcDesconto() {
-             double desconto;
-             desconto= 0.10 * calcSalBruto();
-             return desconto;
-        }	
-       
-        public double calcSalLiquido() {
-              double salLiq;
-              salLiq = calcSalBruto() - calcDesconto();
-              return salLiq;
-         }
+    public double calcDesconto(){
+        return(0.10 * calcSalBruto());
+    }
+    
+    public double calcSalLiquido(){
+        return(calcSalBruto() - calcDesconto());
+    }
   
 }

@@ -14,7 +14,7 @@ public class FuncionarioComissionado extends Funcionario {
     private double TaxaComissao;
     private double TotalVendas;
 
-    public FuncionarioComissionado(int registro, String nome, String dtAdmissao, double SalBase, double TaxaComissao, double TotalVendas) {
+    public FuncionarioComissionado(int registro, String nome, String dtAdmissao, double TaxaComissao) {
         super(registro, nome, dtAdmissao);
         this.SalBase = SalBase;
         this.TaxaComissao = TaxaComissao;
@@ -41,15 +41,20 @@ public class FuncionarioComissionado extends Funcionario {
         this.TotalVendas += vVenda;
     }
     
-    //public double calcGratificacao() {
-       // if (this.TotalVendas > 5000 && this.TotalVendas <= 10000) {
-         //   this.
-       //}
-    //}
+    public double calcGratificacao(){
+        if(TotalVendas <= 5000){
+            return 0;
+        }else if(TotalVendas > 5000 && TotalVendas <= 10000){
+             return calcSalBruto()*0.035;
+        } 
+        else{
+            return calcSalBruto()*0.05;
+        }
+    }
     
-    //public double calcSalLiquido() {
-        //return super.calcSalBruto() - super.calcDesconto() + this.calcGratificacao();
-   //}
+    public double calcSalLiquido(){
+        return (super.calcSalLiquido() + calcGratificacao());
+    }
     
     public double calcSalBruto() {
         double salBruto;
