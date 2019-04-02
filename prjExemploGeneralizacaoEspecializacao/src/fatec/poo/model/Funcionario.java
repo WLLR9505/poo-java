@@ -14,6 +14,7 @@ package fatec.poo.model;
    private String nome;
    private String dtAdmissao;
    private String cargo;
+   private Departamento departamento;
 
     public Funcionario(int registro, String nome, String dtAdmissao ) {
         this.registro = registro;
@@ -39,6 +40,14 @@ package fatec.poo.model;
 
     public String getCargo() {
         return cargo;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
     
     abstract public double calcSalBruto(); 
