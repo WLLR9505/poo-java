@@ -75,6 +75,14 @@ public class Aplic {
         System.out.println("Desconto => " + (funcCom.calcDesconto()));
         System.out.println("Gratificacao => " + (funcCom.calcGratificacao()));
         System.out.println("Salario Liquido  => " + (funcCom.calcSalLiquido())); 
+        
+        d3.addFuncionario(funcHor);
+        d1.addFuncionario(funcMen);
+        d2.addFuncionario(funcCom);
+        
+        d1.listar();
+        d2.listar();
+        d3.listar();
     }
     
 }
