@@ -15,6 +15,7 @@ package fatec.poo.model;
    private String dtAdmissao;
    private String cargo;
    private Departamento departamento;
+   private Projeto projeto;
 
     public Funcionario(int registro, String nome, String dtAdmissao ) {
         this.registro = registro;
@@ -46,6 +47,14 @@ package fatec.poo.model;
         return departamento;
     }
 
+    public Projeto getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
+    
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }

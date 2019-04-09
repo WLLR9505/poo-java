@@ -31,7 +31,7 @@ public class Departamento {
     }
     
     public void addFuncionario(Funcionario f) {
-        this.funcionarios[this.qtdFunc++] = f;   //o incremento com '++' a direita é feito depois da funcao
+        this.funcionarios[this.qtdFunc++] = f;
     }
     
     public void listar() {
