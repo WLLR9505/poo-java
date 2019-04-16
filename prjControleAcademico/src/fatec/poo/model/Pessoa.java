@@ -10,16 +10,17 @@ package fatec.poo.model;
  * @author WLLR9505
  */
 public class Pessoa {
-    private String Nome;
+    private String nome;
     private String dtNascimento;
     private String endereco;
-    private String cidade;
+    private String Cidade;
+      
+    public Pessoa(String nome){
+        this.nome = nome;
+    }
 
-    public Pessoa(String Nome) {
-        this.Nome = Nome;
-    }        
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public String getDtNascimento() {
@@ -31,8 +32,22 @@ public class Pessoa {
     }
 
     public String getCidade() {
-        return cidade;
+        return Cidade;
+    }
+
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setCidade(String Cidade) {
+        this.Cidade = Cidade;
     }
     
-    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

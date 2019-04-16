@@ -59,8 +59,8 @@ public class Aplic {
         System.out.println("Salario Bruto    =>  " +  funcMen.calcSalBruto());
         System.out.println("Desconto          =>  " +  funcMen.calcDesconto());
         System.out.println("Salario Liquido  =>  " + funcMen.calcSalLiquido());
-        
 
+         
         FuncionarioComissionado funcCom = new FuncionarioComissionado(3030, "Joao Mendes", "10/12/1975", 10);
         funcCom.setCargo("Vendedor");
         funcCom.setDepartamento(d2);

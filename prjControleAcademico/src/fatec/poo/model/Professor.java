@@ -10,18 +10,17 @@ package fatec.poo.model;
  * @author WLLR9505
  */
 public class Professor extends Pessoa {
-    private String regfunc;
+    private String regFunc;
     private int titularidade;
     private int areaAtuacao;
-
-    public Professor(String regfunc, int areaAtuacao, String Nome) {
-        super(Nome);
-        this.regfunc = regfunc;
-        this.areaAtuacao = areaAtuacao;
+        
+    public Professor(String regFunc, String nome){
+        super(nome);
+        this.regFunc = regFunc;        
     }
 
-    public String getRegfunc() {
-        return regfunc;
+    public String getRegFunc() {
+        return regFunc;
     }
 
     public int getTitularidade() {
@@ -31,6 +30,12 @@ public class Professor extends Pessoa {
     public int getAreaAtuacao() {
         return areaAtuacao;
     }
-    
-    
+
+    public void setTitularidade(int titularidade) {
+        this.titularidade = titularidade;
+    }
+
+    public void setAreaAtuacao(int areaAtuacao) {
+        this.areaAtuacao = areaAtuacao;
+    }
 }
