@@ -5,6 +5,8 @@
  */
 package fatec.poo.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author WLLR9505
@@ -12,14 +14,12 @@ package fatec.poo.model;
 public class Departamento {
     private String sigla;
     private String nome;
-    private Funcionario[] funcionarios;
-    private int qtdFunc;
+    private ArrayList<Funcionario> funcionarios;
     
     public Departamento(String sigla, String nome) {
         this.sigla = sigla;
         this.nome = nome;
-        this.funcionarios = new Funcionario[10];
-        this.qtdFunc = 0; //redundância, valor auto iniciado em zero
+        this.funcionarios = new ArrayList<Funcionario>();
     }
 
     public String getSigla() {
@@ -31,24 +31,30 @@ public class Departamento {
     }
     
     public void addFuncionario(Funcionario f) {
-        this.funcionarios[this.qtdFunc++] = f;
+        funcionarios.add(f);
+        f.setDepartamento(this);
     }
     
-    public void listar() {
-        System.out.println("SIGLA " + this.sigla);
-        System.out.println("Nome " + this.nome);
-        System.out.println("Quantidade funcionarios " + this.qtdFunc);
-        System.out.println("\n\nRegistro\t\tNome\t\t");
+    public void listar(){
+        System.out.println("\n\nSigla: " + sigla);
+        System.out.println("Nome : " + nome);
+        System.out.println("Qtde. funcionários : " + funcionarios.size());
+        System.out.println("\nRegistro\t\tNome\t\tCargo\t\tTipo");
         
-        for (int x = 0; x < qtdFunc; x++) {
-            System.out.println(this.funcionarios[x].getRegistro()+ "\t\t" + this.funcionarios[x].getNome() + "\t\t");
-            if (this.funcionarios[x] instanceof FuncionarioHorista) {
+        for(int x=0; x < funcionarios.size(); x++){
+            System.out.print(funcionarios.get(x).getRegistro() + "\t\t");
+            System.out.print(funcionarios.get(x).getNome() + "\t\t");
+            System.out.print(funcionarios.get(x).getCargo() + "\t");
+            
+            if (funcionarios.get(x) instanceof FuncionarioHorista){
                 System.out.println("Horista");
-            } else if (this.funcionarios[x] instanceof FuncionarioMensalista) {
-                System.out.println("Mensalista");
-            } else if (this.funcionarios[x] instanceof FuncionarioComissionado){
-                System.out.println("Comissionado");
-            }
+            }else
+                if (funcionarios.get(x) instanceof FuncionarioMensalista){
+                    System.out.println("Mensalista");
+                }else{
+                    System.out.println("Comissionado");
+                }
         }
+        
     }
 }

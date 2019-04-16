@@ -5,6 +5,8 @@
  */
 package fatec.poo.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author WLLR9505
@@ -14,14 +16,12 @@ public class Projeto {
     private String descricao;
     private String dataInicio;
     private String dataTermino;
-    private Funcionario[] funcionarios;
-    private int qtdFunc;
+    private ArrayList<Funcionario> funcionarios;
 
     public Projeto(int codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
-        this.qtdFunc = 0;
-        this.funcionarios = new Funcionario[10];
+        this.funcionarios = new ArrayList<Funcionario>();
     }
 
     public void setDataInicio(String dataInicio) {
@@ -49,20 +49,23 @@ public class Projeto {
     }
  
     public void addFuncionario(Funcionario f) {
-        this.funcionarios[this.qtdFunc++] = f;
+        funcionarios.add(f);
+        f.setProjeto(this);
     }
     
     public void listar() {
-        System.out.println("\n\nCodigo: " + this.codigo);
-        System.out.println("Descricao: " + this.descricao);
-        System.out.println("Data de Inicio: " + this.dataInicio);
-        System.out.println("Data de Termino: " + this.dataTermino);
-        System.out.println("Quantidade de Funcionarios: " + this.qtdFunc);
+        System.out.println("\n\nCódigo: " + codigo);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Data de Inicio: " + dataInicio);
+        System.out.println("Data de termino: " + dataTermino);
+        System.out.println("Qtde. Funcionários: " + funcionarios.size());
+        System.out.println("\nRegistro\t\tNome\t\t\tCargo\t\tDepartamento");
         
-        System.out.println("Resgisto\tNome\t\tCargo\t\t\t\tDepartamento");
-        for (int i = 0; i < this.qtdFunc; i++) {
-            System.out.print(this.funcionarios[i].getRegistro()+ "\t\t" + this.funcionarios[i].getNome() + "\t");
-            System.out.println(this.funcionarios[i].getCargo() + "\t\t\t" + this.funcionarios[i].getDepartamento().getNome());
+        for(int x =0; x < funcionarios.size();x++){
+            System.out.print(funcionarios.get(x).getRegistro());
+            System.out.print("\t\t" + funcionarios.get(x).getNome());
+            System.out.print("\t\t" + funcionarios.get(x).getCargo());                        
+            System.out.println("\t\t" + funcionarios.get(x).getDepartamento().getNome());
         }
     }
 }

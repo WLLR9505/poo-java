@@ -44,7 +44,7 @@ public class Aplic {
         System.out.println("Desconto          =>  " +  funcHor.calcDesconto());
         System.out.println("Salario Liquido  =>  " + funcHor.calcSalLiquido());
         System.out.println("Gratificacao    =>  " + funcHor.calcGratificacao());
-           
+
         FuncionarioMensalista funcMen = new FuncionarioMensalista(1011, "Leandro Alves", "15/12/19790", 2.5);
         funcMen.setCargo("Aux. Administrativo");
         funcMen.setDepartamento(d1);
@@ -54,13 +54,13 @@ public class Aplic {
         System.out.println("Nome => " + funcMen.getNome());
         System.out.println("Data admissão    => " + funcMen.getDtAdmissao());
         System.out.println("Cargo    => " + funcMen.getCargo());
-        System.out.println("Departamento   =>  " + funcHor.getDepartamento().getNome());
-        
+        System.out.println("Departamento   =>  " + funcMen.getDepartamento().getNome());
+
         System.out.println("Salario Bruto    =>  " +  funcMen.calcSalBruto());
         System.out.println("Desconto          =>  " +  funcMen.calcDesconto());
         System.out.println("Salario Liquido  =>  " + funcMen.calcSalLiquido());
-          
         
+
         FuncionarioComissionado funcCom = new FuncionarioComissionado(3030, "Joao Mendes", "10/12/1975", 10);
         funcCom.setCargo("Vendedor");
         funcCom.setDepartamento(d2);
@@ -74,14 +74,14 @@ public class Aplic {
         System.out.println("Nome => " + funcCom.getNome());
         System.out.println("Data admissão    => " + funcCom.getDtAdmissao());
         System.out.println("Cargo    => " + funcCom.getCargo());
-        System.out.println("Departamento   =>  " + funcHor.getDepartamento().getNome());
+        System.out.println("Departamento   =>  " + funcCom.getDepartamento().getNome());
         
         System.out.println("Salario Bruto    => " + (funcCom.calcSalBruto()));
         System.out.println("Vendas   => " + (funcCom.getTotalVendas()));
         System.out.println("Comissao => " + funcCom.getTaxaComissao() + "%");
         System.out.println("Desconto => " + (funcCom.calcDesconto()));
         System.out.println("Gratificacao => " + (funcCom.calcGratificacao()));
-        System.out.println("Salario Liquido  => " + (funcCom.calcSalLiquido())); 
+        System.out.println("Salario Liquido  => " + (funcCom.calcSalLiquido()));
         
         d3.addFuncionario(funcHor);
         d1.addFuncionario(funcMen);
