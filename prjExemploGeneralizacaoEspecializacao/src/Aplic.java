@@ -91,7 +91,7 @@ public class Aplic {
         
         p1.addFuncionario(funcCom);
         p1.addFuncionario(funcMen);
-        p1.addFuncionario(funcHor);;
+        p1.addFuncionario(funcHor);
         
         d1.listar();
         d2.listar();
