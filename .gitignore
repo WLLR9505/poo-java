@@ -1,4 +1,7 @@
-
-prjCirculo/nbproject/private/private.xml
-/prjAtividade05/nbproject/private/
-/prjAtividade05/build/
+**/nbproject/private/
+*.properties
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
